@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maquillaje Profesional - Academia Mya</title>
+  <link rel="icon" type="image/png" href="Documents/myaa.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+  <link rel="stylesheet" href="styles2.css">
+ 
+    
+    <style>
+        /* ====================================================
+        ESTILOS CLAVE DEL DISEÑO EN MAQUILLAJE.HTML (FINAL)
+        ==================================================== */
+        
+        /* Estilos del Header y Logo (Mantenidos) */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            border-bottom: 1px solid #e0e0e0;
+            background-color: white;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #444;
+        }
+        .logo img {
+            margin-right: 10px;
+        }
+
+        /* 1. ESTILO DEL BANNER SUPERIOR */
+        .main-banner {
+            background-image: url('Documents/maquillaje_banner.jpg'); /* RUTA DE EJEMPLO */
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+        }
+
+        /* 2. ESTILO DE LA BARRA DE ESTADÍSTICAS FLOTANTE */
+        .course-summary-bar {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            background-color: white;
+            padding: 20px 50px;
+            margin-top: -80px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Estilo del Título con degradado dorado en el texto */
+        .course-title {
+            color: #d89833; 
+            font-size: 2.2em;
+            font-weight: 700;
+            line-height: 1.1; 
+            padding-right: 20px;
+            
+            background: linear-gradient(90deg, #d89833, #ffdf80); 
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent; 
+        }
+
+        /* Estilo del Contenedor de las 3 Columnas de info */
+        .info-columns {
+            display: flex;
+            gap: 40px; 
+        }
+        .info-item {
+            text-align: left;
+            color: #333;
+            border-left: 1px solid #eee;
+            padding-left: 20px;
+        }
+        .info-item:first-child {
+            border-left: none;
+            padding-left: 0;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #d89833; 
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+        }
+        .info-item .icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        .info-data {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 0;
+            line-height: 1.3;
+        }
+        
+        /* 3. ESTILOS DE LAS PESTAÑAS */
+        .tabs-container {
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 50px; 
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .tab-button {
+            padding: 15px 30px;
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+            border: none;
+            background-color: transparent;
+            transition: background-color 0.3s;
+        }
+        .tab-button.active {
+            background-color: #d89833;
+            color: white;
+            border: none;
+            border-radius: 0;
+        }
+        .content-area {
+            padding: 40px 50px;
+        }
+
+        /* 4. ESTILOS DE PESTAÑAS Y CONTENIDO CORREGIDOS */
+
+        /* Contenedor principal de cada pestaña (oculto por defecto) */
+        .perfil-content-wrapper {
+            display: none; 
+        }
+        
+        /* Título Principal de Pestaña */
+        .perfil-content-wrapper h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 25px; 
+            margin-top: 0; 
+            font-weight: 700;
+        }
+
+        /* Contenedor para 2 Columnas (SOLO Perfil Ocupacional) */
+        .contenido-doble {
+            display: flex; 
+            align-items: flex-start;
+            gap: 40px;
+        }
+        
+        /* Contenedor para 1 Columna (Requisitos, Pensum, Horarios) */
+        .contenido-simple {
+            display: block; 
+        }
+
+
+        .perfil-imagen {
+            /* Columna de la derecha (Video/Imagen): Ocupa 40% del espacio */
+            flex: 2; 
+            min-width: 250px; 
+            max-width: 400px; 
+            position: relative;
+        }
+
+        /* El contenedor de contenido debe ser único para ambas clases */
+        .perfil-contenido {
+            /* Ocupa 60% del espacio cuando hay imagen. Ocupa 100% cuando está solo. */
+            flex: 3; 
+            border: 1px solid #e0e0e0; 
+            padding: 25px;            
+            border-radius: 8px;      
+        }
+        
+        .perfil-imagen iframe,
+        .perfil-imagen img {
+            width: 100%;
+            height: auto; 
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+
+        /* ESTILO PARA LA LISTA CORTA (VIÑETAS PERSONALIZADAS) */
+        .perfil-lista-corta {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .perfil-lista-corta li {
+            font-size: 1em;
+            margin-bottom: 15px; 
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .perfil-lista-corta li::before {
+            /* Flecha naranja/dorada */
+            content: '›'; 
+            position: absolute;
+            left: 0;
+            color: #d89833; 
+            font-size: 1.2em;
+            font-weight: bold;
+            top: 0;
+        }
+
+        /* Media Queries (Responsive) */
+        @media (max-width: 900px) {
+             .course-summary-bar {
+                 flex-direction: column;
+                 align-items: flex-start;
+             }
+             .contenido-doble { /* Aplica a móviles */
+                flex-direction: column;
+             }
+             .perfil-contenido {
+                 padding: 15px; 
+             }
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="logo">
+            <img src="Documents/myaa.png" alt="Logo Academia Mya" height="40">
+            <span>ACADEMIA MYA</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-banner"></div>
+
+        <div class="course-summary-bar">
+            <h1 class="course-title">
+                Carrera de <br>
+                Maquillaje <br>
+                Profesional
+            </h1>
+
+            <div class="info-columns"> 
+                <div class="info-item">
+                    <p class="info-label">
+                        <i class="fa-solid fa-file-invoice-dollar icon"></i>
+                        Inversión
+                    </p>
+                    <p class="info-data">
+                        Inscripcion $2,50 <br>
+                        Cada clase $6.00
+                    </p>
+                </div>
+                
+                <div class="info-item">
+                    <p class="info-label">
+                        <i class="fa-solid fa-clock icon"></i>
+                        Duración
+                    </p>
+                    <p class="info-data">6 MESES</p>
+                </div>
+
+                <div class="info-item">
+                    <p class="info-label">
+                        <i class="fa-solid fa-star icon"></i>
+                        Titulación
+                    </p>
+                    <p class="info-data">Otorgamos Certificados de capacitacion</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs-container">
+            <a href="#" class="tab-button active" data-tab="perfil-ocupacional-content" onclick="openTab('perfil-ocupacional-content')">Perfil Ocupacional</a>
+            <a href="#" class="tab-button" data-tab="requisitos-content" onclick="openTab('requisitos-content')">Requisitos</a>
+            <a href="#" class="tab-button" data-tab="pensum-content" onclick="openTab('pensum-content')">Pensum Académico</a>
+            <a href="#" class="tab-button" data-tab="horarios-content" onclick="openTab('horarios-content')">Horarios</a>
+        </div>
+
+        <div class="content-area">
+            
+            <div id="perfil-ocupacional-content" class="perfil-content-wrapper" style="display: block;">
+                
+                <h2>PERFIL OCUPACIONAL</h2> 
+                <div class="contenido-doble"> <div class="perfil-contenido">
+                        <ul class="perfil-lista-corta">
+                            <li>Estudiar el tipo de rostro y técnicas de visagismo (forma, líneas y relieve) para sugerir el maquillaje ideal.</li>
+                            <li>Aplicar la colorimetría (matices, combinación y degradación de colores) en el maquillaje para crear estilos correctamente.</li>
+                            <li>Estar al día con las tendencias del maquillaje local e internacional.</li>
+                            <li>Manejar conocimiento complementario en cuanto a peinado y vestimenta.</li>
+                            <li>Ejercer la docencia en estética a nivel básico, medio, técnico laboral y técnico profesional.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="perfil-imagen">
+                        <img src="Desktop/maquillajeseccio.jpg" alt="Maquilladora profesional" />
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="requisitos-content" style="display:none;">
+                <div class="perfil-contenido">
+                    <h2 class="section-title">📄 Requisitos de Matrícula</h2>
+                    <div class="perfil-lista">
+                        <ul>
+                            <li>2 fotos tamaño carné a color</li>
+                            <li>Copia de Cédula de Identidad (copia)</li>
+                            <li>Certificado de votación (si es mayor de edad)</li>
+                            <li>Título de Bachiller o acta de grado (copia y original)</li>
+                            <li>Certificado de salud (para las debidas carreras)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="pensum-content" style="display:none;">
+                <div class="perfil-contenido">
+                    <h2 class="section-title">📚 Pensum Académico</h2>
+                    <div class="perfil-lista">
+                        <ol>
+                            <li>Módulo I: Bases, Morfología y Colorimetría Avanzada</li>
+                            <li>Módulo II: Maquillaje Social, Nupcial y Quinceañeras</li>
+                            <li>Módulo III: Maquillaje Editorial (Moda, Foto y Video)</li>
+                            <li>Módulo IV: Aplicación de Pestañas y Gestión de Negocios</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+        
+        <div style="padding: 0 50px 40px; text-align: center;">
+            <a href="proyecto.html#programas" class="btn btn-primary large-btn">← VOLVER A PROGRAMAS </a>
+        </div>
+
+    </main>
+    
+    <section id="mapa">
+        <iframe
+        src="https://www.google.com/maps/embed?pb=!4v1764214757392!6m8!1m7!1sJBC9sra3SMuob7vZblOFyw!2m2!1d-2.269273154358643!2d-79.89655083136837!3f51.53076911319048!4f-8.470463171760912!5f0.7820865974627469"
+        width="100%" height="380" style="border:0" allowfullscreen loading="lazy">
+        </iframe>
+    </section>
+
+    <footer class="footer">
+    </footer>
+
+    <a href="https://wa.me/593968388585" class="whatsapp-float" target="_blank">
+        <img src="Documents/logo.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+        
+   <script>
+    function openTab(tabName) {
+        // 1. Oculta todos los contenidos dentro de content-area
+        const contentAreas = document.querySelectorAll('.content-area > div');
+        contentAreas.forEach(content => {
+            content.style.display = 'none';
+        });
+
+        // 2. Remueve la clase 'active' de todos los botones de pestaña
+        const tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        // 3. Muestra el contenido de la pestaña seleccionada
+        const selectedContent = document.getElementById(tabName);
+        if (selectedContent) {
+            // *** REGLA CORREGIDA ***
+            // Si es el Perfil Ocupacional (con imagen), usa flex (dos columnas).
+            if (tabName === 'perfil-ocupacional-content') {
+                selectedContent.style.display = 'flex'; 
+            } else {
+                // Para las demás pestañas (solo texto), usa block (una columna).
+                selectedContent.style.display = 'block'; 
+            }
+        }
+
+        // 4. Establece el botón clickeado como activo
+        document.querySelector(`.tab-button[data-tab="${tabName}"]`).classList.add('active');
+    }
+
+    // Inicializar la primera pestaña al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+        openTab('perfil-ocupacional-content'); 
+    });
+</script>
+</body>
+</html>
