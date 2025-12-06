@@ -215,9 +215,10 @@ a {
    3. SECCIÓN HERO
 ================================ */
 .hero {
-  /* CAMBIAR ESTA LÍNEA */
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Documents/fondo.jpg') no-repeat center center/cover;
-  
+    /* ... Asegúrate de que todas las demás reglas de tamaño/posición estén ahí ... */
+    background-image: url('fondo.jpg'); /* ¡Ruta corregida! */
+    /* Asegúrate de incluir reglas como background-size: cover; */
+
   height: 500px; /* Mantener la altura que ya tenías */
   display: flex;
   justify-content: center;
