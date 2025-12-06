@@ -215,8 +215,12 @@ a {
    3. SECCIÓN HERO
 ================================ */
 .hero {
-  /* CAMBIAR ESTA LÍNEA */
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Documents/fondo.jpg') no-repeat center center/cover;
+ .hero {
+    /* ... otras propiedades de estilo ... */
+    background-image: url('fondo.jpg'); /* ¡Esta debe ser la ruta! */
+    background-size: cover;
+    /* ... otras propiedades de estilo ... */
+
   
   height: 500px; /* Mantener la altura que ya tenías */
   display: flex;
