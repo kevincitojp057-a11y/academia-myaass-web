@@ -245,10 +245,11 @@ a {
   3. SECCIÓN HERO
 ================================ */
 .hero {
- /* CAMBIAR ESTA LÍNEA */
- background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Documents/fondo.jpg') no-repeat center center/cover;
-  height: 500px; /* Mantener la altura que ya tenías */
- display: flex;
+    /* Cambia 'Documents/fondo.jpg' a 'images/fondo.jpg' */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), **url('images/fondo.jpg')** no-repeat center center/cover;
+    height: 500px; 
+    /* ... */
+
  justify-content: center;
  align-items: center;
  text-align: center;
