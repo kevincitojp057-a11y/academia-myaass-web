@@ -241,19 +241,20 @@ a {
 }
 
 
+
 /* ================================
   3. SECCIÓN HERO
 ================================ */
 .hero {
-    /* Cambia 'Documents/fondo.jpg' a 'images/fondo.jpg' */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), **url('images/fondo.jpg')** no-repeat center center/cover;
-    height: 500px; 
-    /* ... */
-
- justify-content: center;
- align-items: center;
- text-align: center;
- color: var(--color-text-light); /* Asegura que el texto siga siendo blanco */
+   
+   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/fondo.jpg') no-repeat center center/cover;
+   height: 500px; /* Mantener la altura que ya tenías */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   color: var(--color-text-light);
+}
 }
 .hero-content h1 {
  font-size: 3rem;
