@@ -1,0 +1,838 @@
+/* ================================
+
+
+================================ */
+html {
+ scroll-behavior: smooth; /* <-- ESTA ES LA PROPIEDAD CLAVE */
+}
+
+
+/* El resto de tu CSS (como el body) */
+body {
+ font-family: Arial, sans-serif;
+ line-height: 1.6;
+ background: var(--color-background-soft);
+ color: var(--color-text-dark);
+}
+
+
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+
+:root {
+ --color-primary: #d4a017; /* Dorado/Naranja principal */
+ --color-secondary: #b18412; /* Dorado oscuro (hover) */
+ --color-text-dark: #222;
+ --color-text-light: #fff;
+ --color-background-soft: #f4f4f4;
+ --color-background-dark: #333;
+}
+
+
+body {
+ font-family: Arial, sans-serif;
+ line-height: 1.6;
+ background: var(--color-background-soft);
+ color: var(--color-text-dark);
+}
+
+
+a {
+ text-decoration: none;
+ color: inherit;
+}
+
+
+.container {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 0 15px;
+}
+
+
+.section {
+ padding: 60px 0;
+}
+
+
+/* TITULOS GENERALES */
+.section-title {
+ font-size: 36px;
+ font-weight: 700;
+ margin-bottom: 40px;
+ text-align: center;
+ color: var(--color-text-dark); /* Color negro para títulos principales */
+}
+/* ==================================================== */
+/* ESTILOS PARA EL BANNER Y ESTADÍSTICAS DE PÁGINAS DE DETALLE */
+/* ==================================================== */
+
+
+/* --- 1. BANNER PRINCIPAL (programa-hero) --- */
+.programa-hero {
+   /* RUTA DE IMAGEN: Asume que tienes una imagen de banner para maquillaje */
+   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('Documents/maquillaje_banner.jpg') no-repeat center center/cover;
+   min-height: 350px;
+   display: flex;
+   align-items: flex-end; /* Alinea el contenido (título) en la parte inferior */
+   padding-bottom: 30px;
+}
+
+
+.programa-hero .carrera-titulo {
+   font-size: 3.5rem;
+   font-weight: 800;
+   line-height: 1.1;
+   text-transform: uppercase;
+  
+   /* Aplicar el degradado dorado al texto del título, como en el ejemplo del competidor */
+   background: linear-gradient(90deg, var(--color-primary), #ffdf80); /* Dorado */
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent; /* Hace el texto transparente para que se vea el fondo */
+}
+
+
+
+
+/* --- 2. BLOQUE DE ESTADÍSTICAS (programa-stats) --- */
+.programa-stats {
+   background-color: var(--color-text-light);
+   padding: 30px 0;
+   position: relative;
+   z-index: 5;
+   border-bottom: 1px solid #eee;
+}
+
+
+.stats-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 20px;
+   text-align: center;
+}
+
+
+.stat-card {
+   background: var(--color-background-soft); /* Fondo gris suave */
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+   border-top: 3px solid var(--color-primary); /* Línea dorada superior */
+}
+
+
+.stat-card i {
+   font-size: 2rem;
+   color: var(--color-primary);
+   margin-bottom: 10px;
+}
+
+
+.stat-card h4 {
+   font-size: 1.2rem;
+   font-weight: bold;
+   color: var(--color-text-dark);
+   margin-bottom: 5px;
+}
+.stat-card p {
+   margin: 0;
+}
+
+
+/* --- AJUSTES PARA DISPOSITIVOS MÓVILES --- */
+@media (max-width: 768px) {
+   .programa-hero .carrera-titulo {
+       font-size: 2.5rem;
+   }
+}
+/* ================================
+  2. HEADER Y NAVEGACIÓN
+================================ */
+.header {
+ background-color: var(--color-text-light);
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ padding: 10px 0;
+}
+
+
+.nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+
+.logo {
+ display: flex;
+ align-items: center;
+ font-size: 1.5rem;
+ font-weight: bold;
+ color: var(--color-text-dark); /* Color negro para el logo */
+}
+
+
+.logo img {
+ height: 40px;
+ margin-right: 10px;
+}
+
+
+/* Menú principal */
+.menu ul {
+ list-style: none;
+ display: flex;
+}
+
+
+.menu ul li a {
+ padding: 10px 15px;
+ display: block;
+ transition: color 0.3s;
+}
+
+
+.menu ul li a:hover {
+ color: var(--color-primary);
+}
+
+
+/* Submenú */
+.submenu {
+ position: relative;
+}
+
+
+.submenu ul {
+ display: none;
+ position: absolute;
+ top: 100%;
+ left: 0;
+ background-color: var(--color-text-light);
+ min-width: 200px;
+ border: 1px solid #ddd;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ z-index: 10;
+ flex-direction: column;
+}
+
+
+.submenu:hover ul {
+ display: flex;
+}
+
+
+.submenu ul li a:hover {
+ background-color: var(--color-background-soft);
+}
+
+
+.mobile-toggle {
+ display: none; /* Oculto en escritorio */
+ background: none;
+ border: none;
+ font-size: 2rem;
+ cursor: pointer;
+ color: var(--color-text-dark);
+}
+
+
+/* ================================
+  3. SECCIÓN HERO
+================================ */
+.hero {
+ /* CAMBIAR ESTA LÍNEA */
+ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Documents/fondo.jpg') no-repeat center center/cover;
+  height: 500px; /* Mantener la altura que ya tenías */
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ color: var(--color-text-light); /* Asegura que el texto siga siendo blanco */
+}
+.hero-content h1 {
+ font-size: 3rem;
+ margin-bottom: 10px;
+}
+
+
+.hero-content p {
+ font-size: 1.2rem;
+ margin-bottom: 30px;
+}
+
+
+/* Estilos de botones de acción */
+.btn {
+ padding: 12px 25px;
+ border-radius: 6px;
+ font-weight: bold;
+ text-transform: uppercase;
+ transition: background-color 0.3s, color 0.3s;
+ margin: 0 10px;
+ display: inline-block;
+ cursor: pointer;
+}
+
+
+.btn-primary {
+ background-color: var(--color-primary);
+ color: var(--color-text-light);
+ border: 2px solid var(--color-primary);
+}
+
+
+.btn-primary:hover {
+ background-color: var(--color-secondary);
+ border-color: var(--color-secondary);
+}
+
+
+.btn-outline {
+ background-color: transparent;
+ color: var(--color-text-light);
+ border: 2px solid var(--color-text-light);
+}
+
+
+.btn-outline:hover {
+ background-color: var(--color-text-light);
+ color: var(--color-text-dark);
+}
+
+
+/* ================================
+  4. TARJETAS DEL GRID NORMAL
+================================ */
+.grid {
+ margin-top: 40px;
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 25px;
+}
+
+
+.card {
+ display: block;
+ background: var(--color-text-light);
+ border-radius: 12px;
+ overflow: hidden;
+ color: var(--color-text-dark);
+ box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+ transition: transform .3s;
+}
+
+
+.card:hover {
+ transform: translateY(-5px);
+}
+
+
+.card img {
+ width: 100%;
+ height: 170px;
+ object-fit: cover;
+}
+
+
+.card-content {
+ padding: 15px;
+ text-align: center;
+}
+
+
+.card h3 {
+ font-size: 20px;
+ font-weight: bold;
+ color: var(--color-text-dark); /* Color negro para subtítulos */
+ margin-bottom: 15px;
+}
+
+
+.info-btn {
+ /* El botón debe estar dentro de un contenedor en el HTML para aplicar margin correctamente */
+ margin: 15px 0; /* Espaciado superior e inferior */
+ padding: 10px 20px;
+ background: var(--color-primary);
+ border: none;
+ color: var(--color-text-light);
+ border-radius: 6px;
+ cursor: pointer;
+ font-size: 14px;
+ font-weight: bold;
+ transition: background-color 0.3s;
+}
+
+
+.info-btn:hover {
+ background: var(--color-secondary);
+}
+/* ================================
+  4.1. SECCIÓN QUIÉNES SOMOS (2 COLUMNAS)
+================================ */
+.section#quienes-somos {
+   display: flex; /* Habilitamos Flexbox para las columnas */
+   flex-wrap: wrap; /* Permite que las columnas se apilen en pantallas pequeñas */
+   align-items: center; /* Centra verticalmente el contenido de las columnas */
+   gap: 40px; /* Espacio entre las columnas */
+   padding: 60px 15px; /* Padding de la sección */
+}
+
+
+.quienes-somos-content {
+   flex: 1; /* Ocupa el espacio restante disponible */
+   min-width: 300px; /* Ancho mínimo antes de apilarse */
+   text-align: left; /* Alinea el texto a la izquierda */
+}
+
+
+.quienes-somos-content h2 {
+   font-size: 36px;
+   font-weight: 700;
+   margin-bottom: 20px;
+   color: var(--color-text-dark); /* Color negro para el título */
+}
+
+
+.quienes-somos-content p {
+   font-size: 1.1rem;
+   line-height: 1.8;
+   margin-bottom: 20px;
+   color: var(--color-text-dark);
+}
+
+
+.quienes-somos-image {
+   flex: 1; /* También ocupa el espacio restante */
+   min-width: 300px; /* Ancho mínimo antes de apilarse */
+   text-align: center; /* Centra la imagen si es más pequeña */
+}
+
+
+.quienes-somos-image img {
+   max-width: 100%; /* La imagen se ajusta al ancho de su contenedor */
+   height: auto; /* Mantiene la proporción */
+   border-radius: 8px; /* Bordes ligeramente redondeados */
+   box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Sombra para destacarla */
+}
+
+
+
+
+/* Media Query para pantallas pequeñas (opcional, si quieres que se apilen) */
+@media (max-width: 768px) {
+   .section#quienes-somos {
+       flex-direction: column; /* Apila las columnas verticalmente */
+   }
+   .quienes-somos-content,
+   .quienes-somos-image {
+       min-width: unset; /* Deshabilita el ancho mínimo para que ocupe todo el ancho */
+       width: 100%;
+   }
+   .quienes-somos-content {
+       text-align: center; /* Centra el texto en móvil si lo deseas */
+   }
+}
+
+
+/* ================================
+  5. CARRUSEL DE CURSOS
+================================ */
+.carrusel-cursos {
+ padding: 40px 20px;
+ max-width: 1100px;
+ margin: auto;
+ position: relative; /* Contenedor de referencia para las flechas */
+}
+
+
+.slider {
+ display: flex;
+ gap: 20px;
+ overflow-x: auto;
+ scroll-behavior: smooth;
+ padding-bottom: 20px;
+}
+
+
+.slider::-webkit-scrollbar {
+ display: none;
+}
+
+
+.slide {
+ min-width: 280px;
+ background: var(--color-text-light);
+ border-radius: 15px;
+ box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+ overflow: hidden;
+ flex-shrink: 0;
+}
+
+
+.slide-img {
+ width: 100%;
+ height: 180px;
+ object-fit: cover;
+}
+
+
+.slide-info {
+ padding: 15px;
+ text-align: center;
+}
+
+
+.slide-info h3 {
+ font-size: 20px;
+ margin-bottom: 15px;
+ color: var(--color-text-dark); /* Color negro para subtítulos */
+}
+
+
+/* Botón dentro del slider */
+.btn-info {
+ display: inline-block;
+ background: var(--color-primary);
+ padding: 10px 18px;
+ border-radius: 6px;
+ color: var(--color-text-light);
+ font-weight: bold;
+ transition: 0.3s;
+}
+
+
+.btn-info:hover {
+ background: var(--color-secondary);
+}
+
+
+/* Flechas (CORRECCIÓN CLAVE) */
+.slider-btn {
+ border: none;
+ background: var(--color-primary);
+ color: var(--color-text-light);
+ padding: 10px 15px;
+ font-size: 22px;
+ border-radius: 50%;
+ cursor: pointer;
+ transition: 0.3s;
+  /* Posicionamiento absoluto sobre el carrusel */
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%);
+ z-index: 10;
+}
+
+
+.slider-btn:hover {
+ background: var(--color-secondary);
+}
+
+
+.prev {
+ left: 10px;
+}
+
+
+.next {
+ right: 10px;
+}
+
+
+/* ================================
+  6. GALERÍA
+================================ */
+.gallery-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 10px;
+}
+
+
+.gallery-grid img {
+   width: 100%;
+   height: 200px;
+   object-fit: cover;
+   border-radius: 5px;
+   transition: opacity 0.3s;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.gallery-grid img:hover {
+   opacity: 0.8;
+}
+
+
+/* ================================
+  7. FOOTER
+================================ */
+.footer {
+ background-color: var(--color-background-dark);
+ color: var(--color-text-light);
+ padding: 40px 0;
+ margin-top: 40px;
+}
+
+
+.footer-container {
+ display: flex;
+ /* CAMBIO: Usamos space-between para separar las tres columnas */
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 30px;
+ max-width: 1200px; /* Ancho máximo */
+ margin: 0 auto;
+ padding: 0 15px; /* Padding lateral */
+ align-items: flex-start; /* Alinea los elementos en la parte superior */
+}
+.footer-logo {
+   text-align: center;
+   /* Usamos flexbox para centrar bien la imagen, incluso si hay espacio extra */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  
+   /* Le damos una parte justa del espacio */
+   flex: 1;
+   min-width: 200px; /* Asegura que no se haga demasiado pequeño */
+}
+
+
+/* Estilo para la imagen real del logo */
+.academy-logo {
+   max-width: 100%; /* El ancho máximo es el de su contenedor (.footer-logo) */
+   height: auto;
+   /* Ajusta este valor para controlar el tamaño final de la imagen */
+   max-height: 150px;
+}
+.footer-info,
+.footer-emails {
+   flex: 1;
+   min-width: 250px;
+}
+/* Títulos del Footer - ¡DORADO! */
+.footer-info h3, .footer-info h4 {
+ color: var(--color-primary); /* Se verán en dorado (#d4a017) */
+ margin-bottom: 10px;
+}
+
+
+/* ... (resto del CSS del footer) ... */
+social-icons a {
+ /* Estilo para el contenedor del ícono (el enlace <a>) */
+ color: var(--color-text-light); /* Hereda color blanco/claro del footer */
+ font-size: 28px; /* Tamaño del ícono */
+ margin-right: 15px;
+ transition: color 0.3s;
+}
+
+
+.social-icons a:hover {
+ color: var(--color-primary); /* Cambia a dorado al pasar el ratón */
+}
+
+
+
+
+/* Puedes borrar la regla anterior que tenías para imágenes, ya no es necesaria:
+.social-icons a img { ... }
+*/
+/* ================================
+  8. MEDIA QUERIES (Responsivo)
+================================ */
+@media (max-width: 768px) {
+   /* Header/Menú Móvil */
+   .menu {
+       position: absolute;
+       width: 100%;
+       top: 60px;
+       left: 0;
+       background-color: var(--color-text-light);
+       z-index: 100;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+       display: none;
+   }
+  
+   .mobile-toggle {
+       display: block;
+   }
+  
+   .menu ul {
+       flex-direction: column;
+       align-items: flex-start;
+   }
+
+
+   .menu ul.open {
+       display: flex;
+   }
+  
+   .submenu ul {
+       position: static;
+       width: 100%;
+       border: none;
+       box-shadow: none;
+       padding-left: 20px;
+   }
+
+
+   /* Hero */
+   .hero h1 {
+       font-size: 2.2rem;
+   }
+   .hero-actions {
+       display: flex;
+       flex-direction: column;
+       gap: 15px;
+   }
+   .btn {
+       margin: 0;
+   }
+
+
+   /* Footer */
+   .footer-container {
+       flex-direction: column;
+       text-align: center;
+   }
+   .footer-info p, .footer-info h3, .footer-info h4 {
+       text-align: center;
+   }
+} /* <--- ¡El cierre de la media query debe ir aquí! */
+
+
+
+
+/* ================================
+  9. BOTÓN FLOTANTE DE WHATSAPP (MOVIDO FUERA DEL MEDIA QUERY)
+================================ */
+.whatsapp-float {
+   position: fixed !important; /* Añadimos !important para forzarlo */
+   bottom: 25px;
+   right: 25px;
+   width: 60px;
+   height: 60px;
+   background-color: #f9fcfa;
+   border-radius: 50%;
+   z-index: 99999; /* Z-index muy alto */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+.whatsapp-icon {
+   width: 35px;
+   height: 35px;
+}
+
+
+/* ==================================================== */
+/* 9. ESTILOS PARA PÁGINAS DE DETALLE (maquillaje.html, etc.) */
+/* ==================================================== */
+
+
+/* Estilos generales del contenedor en la página de detalle */
+/* ESTILO PARA EL FONDO DEGRADADO EN EL TÍTULO */
+.programa-detalle-grid h2 {
+   /* 1. Mantenemos tus estilos base */
+   font-size: 2.5em;
+   margin-bottom: 20px;
+   text-align: center;
+   font-weight: bold;
+  
+   /* 2. Definir el Degradado Dorado */
+   background: linear-gradient(
+       90deg,
+       transparent 0%, /* Empieza transparente */
+       var(--color-primary) 10%, /* Tono dorado fuerte */
+       #ffdf80 50%,             /* Tono claro (brillo) */
+       var(--color-secondary) 90%, /* Tono oscuro */
+       transparent 100% /* Termina transparente */
+   );
+  
+   /* 3. El texto debe ser visible (no transparente) */
+   color: var(--color-text-dark); /* Texto negro o el color que desees */
+  
+   /* 4. Darle espacio alrededor al título y asegurar que el fondo se vea */
+   padding: 10px 0;
+   width: 100%;
+   display: block; /* Asegura que el H2 ocupe todo el ancho */
+  
+   /* 5. Asegúrate de que las reglas de background-clip y color: transparent NO estén aquí */
+   -webkit-background-clip: unset;
+   background-clip: unset;
+}
+
+
+/* Contenedor Flexbox para las dos columnas: Detalles y Temario */
+.info-bloques {
+   display: flex;
+   gap: 40px;
+   justify-content: center;
+   flex-wrap: wrap; /* Permite que las columnas se apilen en dispositivos móviles */
+   margin-bottom: 40px;
+}
+
+
+.info-columna {
+   flex-basis: 45%; /* Hace que cada columna ocupe casi la mitad */
+   padding: 20px;
+   background: var(--color-text-light); /* Fondo blanco */
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+
+.info-columna h3 {
+   color: var(--color-primary); /* Títulos de columna en dorado */
+   border-bottom: 2px solid var(--color-primary);
+   padding-bottom: 10px;
+   margin-bottom: 15px;
+}
+
+
+.info-columna ul, .info-columna ol {
+   /* Reinicia el padding de la lista para mejor presentación */
+   padding-left: 20px;
+   /* Asegura que los números/puntos estén dentro del contenedor */
+   list-style-position: outside;
+}
+
+
+.info-columna li {
+   margin-bottom: 8px;
+   line-height: 1.5;
+}
+
+
+/* Estilo para el botón de volver a Programas */
+.large-btn {
+   display: block;
+   width: fit-content;
+   margin: 30px auto 0 auto;
+   padding: 12px 30px;
+   font-size: 1.1em;
+   text-align: center;
+}
+
+
+/* MEDIA QUERY ESPECÍFICA PARA MÓVILES (Páginas de Detalle) */
+@media (max-width: 768px) {
+   .info-bloques {
+       flex-direction: column; /* Apila las columnas verticalmente */
+       gap: 20px;
+   }
+   .info-columna {
+       flex-basis: 100%;
+   }
+}
+
